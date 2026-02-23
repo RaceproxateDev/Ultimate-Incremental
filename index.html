@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ultra Incremental</title>
+    </head>
+
+    <body>
+        <!-- HTML -->
+        
+        <button id="PtsMenuBtn" onclick="ChangeWindows('PtsMenu')">Points</button>
+        <button id="SettingsBtn" onclick="ChangeWindows('Settings')">Settings</button>
+        <button id="UpgradesBtn" onclick="ChangeWindows('Upgrades')">Upgrades</button>
+        <button id="PrestigeTabBtn" onclick="ChangeWindows('Prestige')" style="visibility: hidden;">Prestige</button>
+        <button id="RepetitionsTabBtn" onclick="ChangeWindows('Repetitions')" style="visibility: hidden;">Repetitions</button>
+        <button id="RebirthTabBtn" onclick="ChangeWindows('RebirthMenu')" style="visibility: hidden;">Rebirth</button>
+
+        <div id="PtsMenu" style="display: none;">
+            <h1 style="color: white; text-align: center;" id="PtsDisplay">You Have 0 Points</h1>
+            <h1 style="color: rgb(0, 234, 255); text-align: center;" id="PrestigePointsDisplay" style="visibility: hidden;">Prestige Points: 0</h1> <br>
+            <button id="PointsClicker" onclick="GainPoints()">Gain Points</button>
+        </div>
+
+        <div id="Settings" style="display: none;">
+            <h1 style="color: white; text-align: center;">Settings</h1>
+            <button id="SaveGameBtn" onclick="SaveGame()">Save</button>
+            <button id="ResetDataBtn" onclick="ResetData()">Reset</button> <br> <br>
+            <button id="SetAutosaveIntervalBtn" onclick="SetAutosaveInterval()">Set Autosave Interval</button>
+
+            <section id="StatsSection" style="background-color: black;">
+                <h1 style="color: white; text-align: center;">Stats</h1>
+                <h4 style="color: white; text-align: center;" id="PtsMultiStatTxt">Points Multiplier: 1x</h4>
+                <h4 style="color: rgb(0, 255, 238); text-align: center;" id="PPMultiStatTxt">Prestige Points Multiplier: 1x</h4>
+            </section>
+        </div>
+
+        <div id="Upgrades" style="display: none;">
+            <br><button id="PointsUpgradesBtn" onclick="ChangeWindows('PointsUpgrades')">Points Upgrades</button>
+            <button id="PrestigeUpgradesBtn" onclick="ChangeWindows('PrestigeUpgrades')" style="visibility: hidden;">Prestige Upgrades</button>
+        </div>
+
+        <div id="PointsUpgrades" style="display: none;">
+            <h1 style="color: white; text-align: center;">Points Upgrades</h1>
+
+            <section>
+                <h1 style="color: white; text-align: center;">More Points I</h1>
+                <h2 style="color: white; text-align: center;">Get 25% more points compounding</h2>
+                <br> <button id="PtsBuyable1Btn" onclick="BuyUpgrade(1)">10 Points</button>
+                
+                <h1 style="color: white; text-align: center;">More Points II</h1>
+                <h2 style="color: white; text-align: center;">Get 2x Points</h2>
+                <br> <button id="PtsBuyable2Btn" onclick="BuyUpgrade(2)">100 Points</button>
+
+                <h1 style="color: white; text-align: center;">New Thing!</h1>
+                <h2 style="color: white; text-align: center;">Unlock the Prestige Tab</h2>
+                <br> <button id="PtsBuyable3Btn" onclick="BuyUpgrade(3)">1,000 Points</button>
+            </section>
+        </div>
+
+        <div id="Prestige" style="display: none;">
+            <h1 style="color: rgb(0, 238, 255); text-align: center;">Prestige</h1>
+            <h3 style="color: rgb(0, 238, 255); text-align: center;">Prestiging will reset Points and its upgrades.</h3>
+            <h3 style="color: rgb(0, 238, 255); text-align: center;" id="PPTextCalc">You will gain 0 Prestige Points.</h3>
+            <br><button id="PrestigeBtn" onclick="Prestige()">Prestige</button>
+        </div>
+
+        <div id="PrestigeUpgrades" style="display: none;">
+            <h1 style="color: rgb(0, 238, 255); text-align: center;">Prestige Upgrades</h1>
+            <h1 style="color: rgb(0, 238, 255); text-align: center;">Mega Boost I</h1>
+            <h2 style="color: rgb(0, 238, 255); text-align: center;">3x Points</h2>
+
+            <br><button id="PPBuyable1Btn" onclick="BuyPPUpgrade(1)">1 Prestige Points</button>
+            <h1 style="color: rgb(0, 238, 255); text-align: center;">Prestige I</h1>
+            <h2 style="color: rgb(0, 238, 255); text-align: center;">Gain 50% more Prestige Points compounding</h2>
+            <br><button id="PPBuyable2Btn" onclick="BuyPPUpgrade(2)">5 Prestige Points</button>
+
+            <h1 style="color: rgb(0, 238, 255); text-align: center;">???????????</h1>
+            <h2 style="color: rgb(0, 238, 255); text-align: center;">Unlock Repetitions</h2>
+            <br><button id="PPBuyable3Btn" onclick="BuyPPUpgrade(3)">25 Prestige Points</button>
+        </div>
+        
+        <div id="Repetitions" style="display: none;">
+            <h1 style="color: rgb(255, 0, 0); text-align: center;">Repetitions</h1>
+            <h3 style="color: rgb(255, 0, 0); text-align: center;">Repetitions will reset everything including Prestige Points and its upgrades.</h3>
+            <h3 style="color: rgb(255, 0, 0); text-align: center;" id="RepetitionsTextCalc">You need 20 Prestige Points to perform a Repetition.</h3>
+            <br><button id="RepetitionsBtn" onclick="Repeat()">Repeat</button>
+            <h2 style="color: rgb(255, 0, 0); text-align: center;" id="RepetitionPointsDisplay">You Have 0 Repetition Points</h2>
+
+            <table style="background-color: rgb(0, 0, 0);" id="RepetitionMilestones">
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone1">
+                        <h2 style="color: white; text-align: center;">1 Repetition Point</h2>
+                        <h3 style="color: white; text-align: center;">3x Points and PP</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone2">
+                        <h2 style="color: white; text-align: center;">2 Repetition Points</h2>
+                        <h3 style="color: white; text-align: center;">PP boost Points</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone3">
+                        <h2 style="color: white; text-align: center;">4 Repetition Points</h2>
+                        <h3 style="color: white; text-align: center;">^1.01 Points, and Autobuy Point Upgrades</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone4">
+                        <h2 style="color: white; text-align: center;">6 Repetition Points</h2>
+                        <h3 style="color: white; text-align: center;">Prestige Resets nothing but 2x Repetition scale</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone5">
+                        <h2 style="color: white; text-align: center;">8 Repetition Points</h2>
+                        <h3 style="color: white; text-align: center;">Passively gain 1% of your Prestige Points per second</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone6">
+                        <h2 style="color: white; text-align: center;">12 Repetition Points</h2>
+                        <h3 style="color: white; text-align: center;">3.5x Points and PP but 3x Repetition Scale</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(255, 0, 0);" id="RepetitionMilestone7">
+                        <h2 style="color: white; text-align: center;">20 Repetition Points</h2>
+                        <h3 style="color: white; text-align: center;">Unlock Rebirth and ^1.1 Points</h3>
+                    </td>
+                </tr>
+            </table> 
+        </div>
+
+        <div id="RebirthMenu" style="display: none;">
+            <h1 style="color: magenta; text-align: center;">Rebirth</h1>
+            <h2 style="color: magenta; text-align: center;">Rebirth will reset everything including Repetition Points and its milestones.</h2>
+            <h2 style="color: magenta; text-align: center;" id="RebirthTextCalc">You will gain 0 Rebirth Points</h2>
+            <br><button id="RebirthBtn" onclick="Rebirth()">Rebirth</button>
+            <h2 style="color: magenta; text-align: center;" id="RebirthPointsDisplay">You Have 0 Rebirth Points</h2>
+            <button id="RebirthTreeBtn" onclick="ChangeWindows('RebirthTree')" style="display: none;">Rebirth Tree</button>
+        </div>
+
+        <div id="RebirthTree" style="display: none;">
+            <h1 style="color: rgb(255, 0, 255); text-align: center;" id="RebirthEssenceDisplay">Rebirth Essence: 0</h1>
+
+            <button id="RebirthTreeUpg1Btn" onclick="BuyRebirthTreeUpgrade(1)">
+                <h3 style="color: rgb(255, 255, 255); text-align: center;">Start II (1)</h3>
+                <h4 style="color: rgb(255, 255, 255); text-align: center;">Start generating Rebirth Essence</h4>
+                <h3 style="color: rgb(255, 255, 255); text-align: center;" id="RPUpg1BtnCost"> Cost: Free!</h3>
+            </button> <br><br><br>
+
+            <button id="RebirthTreeUpg2Btn" onclick="BuyRebirthTreeUpgrade(2)" style="display: none;">
+                <h3 style="color: rgb(255, 255, 255); text-align: center;">Great Boost (2)</h3>
+                <h4 style="color: rgb(255, 255, 255); text-align: center;">3x Rebirth Essence</h4>
+                <h3 style="color: rgb(255, 255, 255); text-align: center;" id="RPUpg2BtnCost"> Cost: 10 Rebirth Essence</h3>
+            </button> <br><br><br>
+
+            <button id="RebirthTreeUpg3Btn" onclick="BuyRebirthTreeUpgrade(3)" style="display: none;">
+                <h3 style="color: white; text-align: center;">Better Repeater (3)</h3>
+                <h4 style="color: white; text-align: center;">2x Repetition Points</h4>
+                <h3 style="color: white; text-align: center;" id="RPUpg3BtnCost">Cost: 1 Rebirth Point</h3>
+            </button>
+
+            <button id="RebirthTreeUpg4Btn" onclick="BuyRebirthTreeUpgrade(4)">
+                <h3 style="color: white; text-align: center;">Great Boost II (4)</h3>
+                <h4 style="color: white; text-align: center;">10x Points</h4>
+                <h3 style="color: white; text-align: center;" id="RPUpg4BtnCost">Cost: 50 Rebirth Essence</h3>
+            </button>
+
+            <button id="RebirthTreeUpg5Btn" onclick="BuyRebirthTreeUpgrade(5)">
+                <h3 style="color: white; text-align: center;">No more pain (5)</h3>
+                <h4 style="color: white; text-align: center;">Autoclick the Points button every second</h4>
+                <h3 style="color: white; text-align: center;" id="RPUpg5BtnCost">Cost: 100 Rebirth Essence</h3>
+            </button>
+
+            <button id="RebirthTreeUpg6Btn" onclick="BuyRebirthTreeUpgrade(6)">
+                <h3 style="color: white; text-align: center;">Advanced Automation (6)</h3>
+                <h4 style="color: white; text-align: center;">Autobuy Prestige Upgrades</h4>
+                <h3 style="color: white; text-align: center;" id="RPUpg6BtnCost">Cost: 2 Rebirth Points</h3>
+            </button>
+        </div>
+
+        <!-- Scripts -->
+        <script src="Utils/OmegaNum.js"></script>
+        <script src="Utils/NumberFormatting.js"></script>
+        <script src="main.js"></script>
+        <script src="Resets.js"></script>
+        <script src="Utils/save.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </body>
+</html>
