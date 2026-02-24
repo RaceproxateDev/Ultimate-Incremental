@@ -1,9 +1,9 @@
 function SaveGame() {
-    localStorage.setItem("PlayerData1", JSON.stringify(Data));
+    localStorage.setItem("PlayerData1", btoa(unescape(encodeURIComponent(JSON.stringify(Data)))));
 }
 
 function LoadGame() {
-    let SaveData = JSON.parse(localStorage.getItem("PlayerData1"));
+    let SaveData = JSON.parse(decodeURIComponent(escape(atob(localStorage.getItem("PlayerData1")))))
 
     if (SaveData) {
         Data = SaveData;
