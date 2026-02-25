@@ -54,7 +54,8 @@ var htmlItems = {
     PtsBuyable3Btn: document.getElementById("PtsBuyable3Btn"),
     PrestigeTabBtn: document.getElementById("PrestigeTabBtn"),
     PPTextCalc: document.getElementById("PPTextCalc"),
-    PrestigeUpgradesBtn: document.getElementById("PrestigeUpgradesBtn"),
+    PPUpgsDisplay: document.getElementById("PPUpgsDisplay"),
+
 
     // Stats
     PtsMultiStatTxt: document.getElementById("PtsMultiStatTxt"),
@@ -69,6 +70,7 @@ function UpdateText() {
     htmlItems.PtsBuyable3Btn.style.visibility = (Data.PrestigeUnlocked === false) ? "visible" : "hidden";
     htmlItems.PrestigeTabBtn.style.visibility = (Data.PrestigeUnlocked === true) ? "visible" : "hidden";
     htmlItems.PPTextCalc.innerText = `You will gain ${format(Data.PPStorage)} Prestige Points.`;
+    htmlItems.PPUpgsDisplay.style.display = (Data.PrestigeUnlocked === true) ? "block" : "none"
 
     // Stats
     htmlItems.PtsMultiStatTxt.innerText = `Points Multiplier: ${format(Data.PtsMulti)}x`;
@@ -175,4 +177,3 @@ function ShowLvlUpg() {
 }
 
 setInterval(ShowLvlUpg, 100)
-
