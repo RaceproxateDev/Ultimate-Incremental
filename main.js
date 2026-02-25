@@ -69,7 +69,6 @@ function UpdateText() {
     htmlItems.PtsBuyable3Btn.style.visibility = (Data.PrestigeUnlocked === false) ? "visible" : "hidden";
     htmlItems.PrestigeTabBtn.style.visibility = (Data.PrestigeUnlocked === true) ? "visible" : "hidden";
     htmlItems.PPTextCalc.innerText = `You will gain ${format(Data.PPStorage)} Prestige Points.`;
-    htmlItems.PrestigeUpgradesBtn.style.visibility = (Data.PrestigeUnlocked === true) ? "visible" : "hidden";
 
     // Stats
     htmlItems.PtsMultiStatTxt.innerText = `Points Multiplier: ${format(Data.PtsMulti)}x`;
@@ -176,3 +175,4 @@ function ShowLvlUpg() {
 }
 
 setInterval(ShowLvlUpg, 100)
+
