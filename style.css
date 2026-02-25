@@ -73,42 +73,90 @@ button {
     height: 50px;
 }
 
-#PointsUpgradesBtn {
-    background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 0, 255));
-    color: white;
-    border-color: white;
-    width: 100px;
-    height: 50px;
-}
 
 #PtsBuyable1Btn {
     background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 0, 255));
     color: white;
     border-color: white;
-    width: 100%;
+    width: 25%;
     height: 50px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: 50%;
+    transform: translateX(100%);
 }
 
 #PtsBuyable2Btn {
     background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 0, 255));
     color: white;
     border-color: white;
-    width: 100%;
+    width: 25%;
     height: 50px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: 50%;
+    transform: translateX(100%);
 }
 
 #PtsBuyable3Btn {
     background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 0, 255));
     color: white;
     border-color: white;
-    width: 100%;
+    width: 25%;
     height: 50px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: 50%;
+    transform: translateX(100%);
+}
+
+.PtsUpg1Displayer {
+    background-color: blue;
+    color: white;
+    border-color: white;
+    width: 85px;
+    height: 85px;
+}
+
+.PtsUpg2Displayer {
+    background-color: blue;
+    color: white;
+    border-color: white;
+    width: 85px;
+    height: 85px;
+}
+
+.PtsUpg3Displayer {
+    background-color: blue;
+    color: white;
+    border-color: white;
+    width: 85px;
+    height: 85px;
+    transform: translateY(-9.5%);
+}
+
+.PPUpg1Displayer {
+    background-color: aqua;
+    color: white;
+    border-color: white;
+    width: 85px;
+    height: 85px;
+}
+
+.PPUpg2Displayer {
+    background-color: aqua;
+    color: white;
+    border-color: white;
+    width: 85px;
+    height: 85px;
+}
+
+.PPUpg3Displayer {
+    background-color: aqua;
+    color: white;
+    border-color: white;
+    width: 85px;
+    height: 85px;
 }
 
 #PrestigeTabBtn {
@@ -129,42 +177,41 @@ button {
     font-family: 'Montserrat', sans-serif;
 }
 
-#PrestigeUpgradesBtn {
-    background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 255, 238));
-    color: white;
-    border-color: white;
-    width: 100px;
-    height: 50px;
-}
 
 #PPBuyable1Btn {
     background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 255, 238));
     color: white;
     border-color: white;
-    width: 100%;
+    width: 25%;
     height: 50px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: 50%;
+    transform: translateX(100%);
 }
 
 #PPBuyable2Btn {
     background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 255, 238));
     color: white;
     border-color: white;
-    width: 100%;
+    width: 25%;
     height: 50px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: 50%;
+    transform: translateX(100%);
 }
 
 #PPBuyable3Btn {
     background-image: linear-gradient(to right, rgb(0, 191, 255), rgb(0, 255, 238));
     color: white;
     border-color: white;
-    width: 100%;
+    width: 25%;
     height: 50px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-left: 50%;
+    transform: translateX(100%);
 }
 
 #RepetitionsTabBtn {
@@ -278,4 +325,6 @@ button {
     transform: translateX(-50%);
     margin-top: 4%;
 }
+
+
 
