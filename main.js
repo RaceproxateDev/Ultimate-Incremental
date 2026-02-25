@@ -108,6 +108,7 @@ function BuyUpgrade(UpgId) {
             Data.PtsBuyable1Amount = OmegaNum.add(Data.PtsBuyable1Amount, 1);
             UpdateText();
             UpdatePtsMulti();
+            ShowLvlUpg()
         }
     }
 
@@ -118,6 +119,7 @@ function BuyUpgrade(UpgId) {
             Data.PtsBuyable2Amount = OmegaNum.add(Data.PtsBuyable2Amount, 1);
             UpdateText();
             UpdatePtsMulti();
+            ShowLvlUpg()
         }
     }
 
@@ -127,9 +129,50 @@ function BuyUpgrade(UpgId) {
             Data.PrestigeUnlocked = true;
             UpdateText();
             UpdatePtsMulti();
+            ShowLvlUpg()
         }
     }
 }
 
 setInterval(UpdateText, 100);
 
+// Upgrades Display
+var AllUpgs = {
+    PtsUpg1Window: document.getElementById("PtsUpg1Window"),
+    PtsUpg2Window: document.getElementById("PtsUpg2Window"),
+    PtsUpg3Window: document.getElementById("PtsUpg3Window"),
+
+    PPUpg1Window: document.getElementById("PPUpg1Window"),
+    PPUpg2Window: document.getElementById("PPUpg2Window"),
+    PPUpg3Window: document.getElementById("PPUpg3Window"),
+}
+
+function DisplayUpgrade(UpgId) {
+    let Upgs = document.querySelectorAll("section");
+    
+    Upgs.forEach(section => {
+        section.style.display = (section.id === UpgId) ? "block" : "none"
+    })
+}
+
+var UpgsDisplays = {
+    PtsUpg1Displayer: document.querySelector(".PtsUpg1Displayer"),
+    PtsUpg2Displayer: document.querySelector(".PtsUpg2Displayer"),
+    PtsUpg3Displayer: document.querySelector(".PtsUpg3Displayer"),
+
+    PPUpg1Displayer: document.querySelector(".PPUpg1Displayer"),
+    PPUpg2Displayer: document.querySelector(".PPUpg2Displayer"),
+    PPUpg3Displayer: document.querySelector(".PPUpg3Displayer"),
+}
+
+function ShowLvlUpg() {
+    UpgsDisplays.PtsUpg1Displayer.innerText = `More Points I [${Data.PtsBuyable1Amount}]`
+    UpgsDisplays.PtsUpg2Displayer.innerText = `More Points II [${Data.PtsBuyable2Amount}]`
+    UpgsDisplays.PtsUpg3Displayer.innerText = (Data.PrestigeUnlocked === true) ? `New Thing! [1/1]` : `New Thing [0/1]`
+
+    UpgsDisplays.PPUpg1Displayer.innerText = `Mega Boost I [${Data.PPBuyable1Amount}]`
+    UpgsDisplays.PPUpg2Displayer.innerText = `Prestige I [${Data.PPBuyable2Amount}]`
+    UpgsDisplays.PPUpg3Displayer.innerText = (Data.RepetitionsUnlocked === true) ? '???????? [1/1]' : '???????? [0/1]'
+}
+
+setInterval(ShowLvlUpg, 100)
