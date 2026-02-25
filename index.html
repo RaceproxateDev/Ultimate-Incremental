@@ -59,29 +59,31 @@
                 <h2 style="color: white; text-align: end;">Unlock the Prestige Tab</h2>
                 <br> <button id="PtsBuyable3Btn" onclick="BuyUpgrade(3)">1,000 Points</button>
             </section>
-            
-            <h1 style="color: rgb(0, 238, 255); text-align: center;">Prestige Upgrades</h1>
-            <button class="PPUpg1Displayer" onclick="DisplayUpgrade('PPUpg1Window')">Mega Boost I [0]</button>
-            <button class="PPUpg2Displayer" onclick="DisplayUpgrade('PPUpg2Window')">Prestige I [0]</button>
-            <button class="PPUpg3Displayer" onclick="DisplayUpgrade('PPUpg3Window')">???????? [0/1]</button>
 
-            <section id="PPUpg1Window" style="display: none;">
-                <h1 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-3%);">Mega Boost I</h1>
-                <h2 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-7.5%);">3x Points</h2>
-                <br><button id="PPBuyable1Btn" onclick="BuyPPUpgrade(1)">1 Prestige Points</button>
-            </section>
+            <group id="PPUpgsDisplay" style="display: none;">
+                <h1 style="color: rgb(0, 238, 255); text-align: center;">Prestige Upgrades</h1>
+                <button class="PPUpg1Displayer" onclick="DisplayUpgrade('PPUpg1Window')">Mega Boost I [0]</button>
+                <button class="PPUpg2Displayer" onclick="DisplayUpgrade('PPUpg2Window')">Prestige I [0]</button>
+                <button class="PPUpg3Displayer" onclick="DisplayUpgrade('PPUpg3Window')">???????? [0/1]</button>
 
-            <section id="PPUpg2Window" style="display: none;">
-               <h1 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-5%);">Prestige I</h1>
-               <h2 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-8.5%);">1.5x PP</h2>
-               <br><button id="PPBuyable2Btn" onclick="BuyPPUpgrade(2)">5 Prestige Points</button>
-            </section>
+                <section id="PPUpg1Window" style="display: none;">
+                   <h1 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-3%);">Mega Boost I</h1>
+                   <h2 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-7.5%);">3x Points</h2>
+                   <br><button id="PPBuyable1Btn" onclick="BuyPPUpgrade(1)">1 Prestige Points</button>
+                </section>
 
-            <section id="PPUpg3Window" style="display: none;">
-                <h1 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-7.5%);">????????</h1>
-                <h2 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-3.5%);">Unlock Repetitions</h2>
-                <br><button id="PPBuyable3Btn" onclick="BuyPPUpgrade(3)">25 Prestige Points</button>
-            </section>
+                <section id="PPUpg2Window" style="display: none;">
+                  <h1 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-5%);">Prestige I</h1>
+                  <h2 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-8.5%);">1.5x PP</h2>
+                  <br><button id="PPBuyable2Btn" onclick="BuyPPUpgrade(2)">5 Prestige Points</button>
+                </section>
+
+                <section id="PPUpg3Window" style="display: none;">
+                   <h1 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-7.5%);">????????</h1>
+                   <h2 style="color: rgb(0, 238, 255); text-align: end; transform: translateX(-3.5%);">Unlock Repetitions</h2>
+                   <br><button id="PPBuyable3Btn" onclick="BuyPPUpgrade(3)">25 Prestige Points</button>
+                </section>
+            </group>
         </div>
 
         <div id="Prestige" style="display: none;">
